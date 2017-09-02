@@ -1,0 +1,48 @@
+<composite
+        xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+        xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.0"
+        targetNamespace="http://com.fanchen.service"
+        name="Calculator">
+
+    <!--暴露接口-->
+      <service name="Calculator" promote="Calculator">
+            <interface.java interface="com.how2java.mapper.CategoryMapper"/>
+            <binding.ws uri="http://127.0.0.1:8099/Calculator"/>
+        </service>
+
+    <!--Service类-->
+    <component name="Calculator">
+        <implementation.java class="ccom.how2java.service.CategoryService" />
+        <reference name="add" target="AddComponent"/>
+        <reference name="getAll" target="GetAllComponent"/>
+        <reference name="list" target="ListComponent"/>
+        <reference name="getPpNumber" target="GetPpNumberComponent"/>
+        <reference name="register" target="RegisterComponent"/>
+        <reference name="getMP" target="GetMPComponent"/>
+        <reference name="setPortrait" target="SetPortraitComponent"/>
+    </component>
+
+    <!--实现类的位置-->
+    <component name="AddComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="GetAllComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="ListComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="GetPpNumberComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="RegisterComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="GetMPComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+    <component name="SetPortraitComponent">
+    <implementation.java class="ccom.how2java.service.CategoryServiceImpl" />
+    </component>
+
+</composite>
